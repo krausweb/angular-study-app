@@ -1,0 +1,32 @@
+<!--Only Read version-->
+<div class="grid12-12">
+  <h1>Get data via HttpClient, from 'cars.json'</h1>
+  <h2 class="cars horizontal-grid">Cars</h2>
+  <ul>
+    <li *ngFor="let car of cars">
+      <h2>{{car.name | uppercase}}</h2>
+      <p>{{car.about}}</p>
+    </li>
+  </ul>
+</div>
+
+<!--CRUD version-->
+<!--
+<div class="grid12-12">
+  <h1>Get data via HttpClient, from 'cars.json'</h1>
+  <h2 class="cars horizontal-grid">Cars</h2>
+  <div class="grid-container">
+    <label for="carName">Car name:</label><br/>
+    <input #carName id="carName" class="margin-top-bottom-1 wide" /><br/>
+    <label for="carAbout">About car:</label><br/>
+    <textarea #carAbout id="carAbout" class="mobile"></textarea><br/>
+    <button (click)="addCar(carName.value, carAbout.value); carName.value=''; carAbout.value=''" class="button">add</button>
+  </div>
+  <ul>
+    <li *ngFor="let car of cars">
+      <h2><a routerLink="/cars-detail/{{car.id}}" class="a">{{car.name | uppercase}} <span>&#x270E;</span></a></h2>
+      <p>{{car.about}}</p>
+      <button class="button" title="delete car" (click)="deleteCar(car)">Delete</button>
+    </li>
+  </ul>
+</div>-->

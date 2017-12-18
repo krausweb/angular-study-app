@@ -1,0 +1,648 @@
+/*
+ * 12-column grid system
+ */
+
+@import "./vars"
+@import "./mixins"
+
+
+/* ************************* Settings ************************ */
+
+body
+  background-color: $color-background
+  font-family: $font-regular
+ol, ul
+  list-style: none
+  margin: 0
+  padding: 0
+a
+  text-decoration: none
+  color: $color-text-a
+h1, h2, h3, h4, h5, h6
+  font-family: $font-bold
+[rel=help], [rel=license], [rel=tag]
+  font-family: $font-light
+button,
+input,
+optgroup,
+select,
+textarea
+  font-family: $font-regular
+input[type="number"]
+  width: 40px
+textarea
+  min-width: 400px
+  min-height: 100px
+button
+  cursor: pointer
+
+.container
+  width: $desktop-min-width
+
+
+/* ************************* Grid units ********************** */
+.grid12-1,
+.grid12-2,
+.grid12-3,
+.grid12-4,
+.grid12-5,
+.grid12-6,
+.grid12-7,
+.grid12-8,
+.grid12-9,
+.grid12-10,
+.grid12-11,
+.grid12-12,
+.grid-full,
+.grid-col2-sidebar,
+.grid-col2-main
+  display: inline
+  float: left
+  margin-left: 1%
+  margin-right: 1%
+
+
+/* ******************* Basic grid units width ********************* */
+.grid12-1
+  width: 6.33%
+
+.grid12-2
+  width: 14.66%
+
+.grid12-3
+  width: 23%
+
+.grid12-4
+  width: 31.33%
+
+.grid12-5
+  width: 39.67%
+
+.grid12-6
+  width: 48%
+
+.grid12-7
+  width: 56.33%
+
+.grid12-8
+  width: 64.67%
+
+.grid12-9
+  width: 73%
+
+.grid12-10
+  width: 81.33%
+
+.grid12-11
+  width: 89.67%
+
+.grid12-12,
+.grid-full
+  width: 98%
+
+
+/* *************** Grid units without left margin **************** */
+.no-margin-left.grid12-1
+  margin-left: 0
+  width: 7.33%
+
+.no-margin-left.grid12-2
+  margin-left: 0
+  width: 15.66%
+
+.no-margin-left.grid12-3
+  margin-left: 0
+  width: 24%
+
+.no-margin-left.grid12-4
+  margin-left: 0
+  width: 32.33%
+
+.no-margin-left.grid12-5
+  margin-left: 0
+  width: 40.67%
+
+.no-margin-left.grid12-6
+  margin-left: 0
+  width: 49%
+
+.no-margin-left.grid12-7
+  margin-left: 0
+  width: 57.33%
+
+.no-margin-left.grid12-8
+  margin-left: 0
+  width: 65.67%
+
+.no-margin-left.grid12-9
+  margin-left: 0
+  width: 74%
+
+.no-margin-left.grid12-10
+  margin-left: 0
+  width: 82.33%
+
+.no-margin-left.grid12-11
+  margin-left: 0
+  width: 90.67%
+
+.no-margin-left.grid12-12,
+.no-margin-left.grid-full
+  margin-left: 0
+  width: 99%
+
+
+/* ************ Grid units without right margin **************** */
+.no-margin-right.grid12-1
+  margin-right: 0
+  width: 7.33%
+
+.no-margin-right.grid12-2
+  margin-right: 0
+  width: 15.66%
+
+.no-margin-right.grid12-3
+  margin-right: 0
+  width: 24%
+
+.no-margin-right.grid12-4
+  margin-right: 0
+  width: 32.33%
+
+.no-margin-right.grid12-5
+  margin-right: 0
+  width: 40.67%
+
+.no-margin-right.grid12-6
+  margin-right: 0
+  width: 49%
+
+.no-margin-right.grid12-7
+  margin-right: 0
+  width: 57.33%
+
+.no-margin-right.grid12-8
+  margin-right: 0
+  width: 65.67%
+
+.no-margin-right.grid12-9
+  margin-right: 0
+  width: 74%
+
+.no-margin-right.grid12-10
+  margin-right: 0
+  width: 82.33%
+
+.no-margin-right.grid12-11
+  margin-right: 0
+  width: 90.67%
+
+.no-margin-right.grid12-12,
+.no-margin-right.grid-full
+  margin-right: 0
+  width: 99%
+
+
+/* ******************* Grid units without any margin ********** */
+.no-margin.grid12-1
+  margin-left: 0
+  margin-right: 0
+  width: 8.33%
+
+.no-margin.grid12-2
+  margin-left: 0
+  margin-right: 0
+  width: 16.66%
+
+.no-margin.grid12-3
+  margin-left: 0
+  margin-right: 0
+  width: 25%
+
+.no-margin.grid12-4
+  margin-left: 0
+  margin-right: 0
+  width: 33.33%
+
+.no-margin.grid12-5
+  margin-left: 0
+  margin-right: 0
+  width: 41.67%
+
+.no-margin.grid12-6
+  margin-left: 0
+  margin-right: 0
+  width: 50%
+
+.no-margin.grid12-7
+  margin-left: 0
+  margin-right: 0
+  width: 58.33%
+
+.no-margin.grid12-8
+  margin-left: 0
+  margin-right: 0
+  width: 66.67%
+
+.no-margin.grid12-9
+  margin-left: 0
+  margin-right: 0
+  width: 75%
+
+.no-margin.grid12-10
+  margin-left: 0
+  margin-right: 0
+  width: 83.33%
+
+.no-margin.grid12-11
+  margin-left: 0
+  margin-right: 0
+  width: 91.67%
+
+.no-margin.grid12-12,
+.no-margin.grid-full
+  margin-left: 0
+  margin-right: 0
+  width: 100%
+
+
+/* ******************* Special grid units: basic structure of pages with 1 and 2 sidebars **********
+ * 2 columns: fixed-width sidebar unit and fluid main unit.
+ * Sidebar unit has the same width for all screen sizes equal or greater than 1280px.
+ * Width of the main unit is fluid */
+.grid-col2-sidebar
+  width: 23%
+
+.grid-col2-main
+  width: 73%
+
+.no-margin.grid-col2-sidebar
+  margin-left: 0
+  margin-right: 0
+  width: 25%
+
+.no-margin.grid-col2-main
+  margin-left: 0
+  margin-right: 0
+  width: 75%
+
+
+/* *********** Another 2 columns inside ".grid-col2-main": fixed-width sidebar unit and fluid main unit ****** */
+.grid-col3-sidebar
+  width: 31.52%
+
+.grid-col3-main
+  width: 65.90%
+
+.no-margin.grid-col3-sidebar
+  margin-left: 0
+  margin-right: 0
+  width: 31.52%
+
+.no-margin.grid-col3-main
+  margin-left: 0
+  margin-right: 0
+  width: 65.90%
+
+.container
+  margin-left: auto
+  margin-right: auto
+
+
+/* ************************** Vertically and Horizontal aligned grid ********************** */
+.vertical-grid-container
+  display: table
+  width: 100%
+
+.vertical-grid
+  float: none
+  display: table-cell
+  vertical-align: middle
+
+.horizontal-grid
+  text-align: center
+
+.horizontal-flex-container
+  display: flex
+
+.vertical-flex
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+
+/* ************************ Containers **************************
+ *************************** Clear floats ******************** */
+.inner-container:before,
+.inner-container:after
+  display: table
+  line-height: 0
+  content: ""
+
+.inner-container:after
+  clear: both
+
+/* ******************* Full width container ********************* */
+.container.full-width
+  width: 100%
+  max-width: none
+
+
+/* ******************** Expanded container (without inner side padding) *********** */
+.container.no-side-padding > .inner-container
+  padding-left: 0
+  padding-right: 0
+
+
+/* ******************** Grid units container ********************
+ * clears floats (place grid units inside "div" with this class) */
+.grid-container
+  *zoom: 1
+  clear: both
+
+.grid-container:before,
+.grid-container:after
+  display: table
+  line-height: 0
+  content: ""
+
+.grid-container:after
+  clear: both
+
+
+/* *********** clears floats and adds vertical margin between units ******** */
+.grid-container-spaced
+  *zoom: 1
+  clear: both
+
+.grid-container-spaced:before,
+.grid-container-spaced:after
+  display: table
+  line-height: 0
+  content: ""
+
+.grid-container-spaced:after
+  clear: both
+
+// example .grid-container-spaced .grid12-1 (from 12-1 to 12-12)
++grid-creator('.grid-container-spaced .grid12-', 'margin-bottom', 2%)
+.grid-container-spaced .grid-full
+  margin-bottom: 2%
+
+// example .grid-container-no-spaced .grid12-1 (from 12-1 to 12-12)
++grid-creator('.grid-container-no-spaced .grid12-', 'margin-bottom', 0)
+.grid-container-no-spaced .grid-full
+  margin-bottom: 0
+
+/* ********************** Grid presentation ****************** */
+.show-grid [class*="grid12-"]
+  background-color: #ffffff
+  text-align: center
+  min-height: 30px
+  line-height: 30px
+  transition: all 300ms ease-in-out
+
+.show-grid [class*="grid12-"]:hover
+  background-color: gray
+
+
+/* ******************** Button / Input / Textarea ******************************************* */
+.button
+  overflow: hidden
+  white-space: nowrap
+  display: inline-block
+  text-overflow: ellipsis
+  padding: 5px 10px
+  border-radius: 2px
+  border: solid 1px
+  margin-top: 5px
+  margin-bottom: 5px
+  &.a
+    background-color: $color-green
+    border-color: transparent
+    &:hover
+      opacity: $color-button-hover
+.input
+  padding: 5px 10px
+  margin: 5px
+
+
+/* ******************** Utility classes ************************************ */
+.no-margin-left
+  margin-left: 0
+.no-margin-right
+  margin-right: 0
+
+// by $gap
+  example from margin-left-1, to margin-left-right-10,
+    padding-left-1, padding-left-right-10
++gutter-creator(margin, left, $gap)
++gutter-creator(margin, right, $gap)
++gutter-creator(margin, top, $gap)
++gutter-creator(margin, bottom, $gap)
++gutter-creator(margin, left-right, $gap)
++gutter-creator(margin, top-bottom, $gap)
++gutter-creator(padding, left, $gap)
++gutter-creator(padding, right, $gap)
++gutter-creator(padding, top, $gap)
++gutter-creator(padding, bottom, $gap)
++gutter-creator(padding, left-right, $gap)
++gutter-creator(padding, top-bottom, $gap)
+
+// by percent
+  example from margin-left-percent-1, to margin-left-right-percent-10,
+    padding-left-percent-1, padding-left-right-percent-10
++gutter-percent-creator(margin, right, $gap)
++gutter-percent-creator(margin, left, $gap)
++gutter-percent-creator(margin, left-right, $gap)
++gutter-percent-creator(margin, top-bottom, $gap)
++gutter-percent-creator(padding, right, $gap)
++gutter-percent-creator(padding, left, $gap)
++gutter-percent-creator(padding, left-right, $gap)
++gutter-percent-creator(padding, top-bottom, $gap)
+
+.list-none
+  list-style: none
+  margin: 0
+  padding: 0
+
+
+/* ************************ Desktop version ************************ */
+@media only screen and (min-width: $desktop-min-width)
+  .hide-below-835,
+  .hide-below-640
+    display: inherit
+
+  .container
+    max-width: $desktop-width-container
+
+  .nested-container
+    margin-left: auto
+    width: 100%
+
+  .grid-col2-sidebar
+    width: 18.84%
+
+  .grid-col2-main
+    width: 77.15%
+
+  .no-margin.grid-col2-sidebar
+    width: 20.84%
+
+  .no-margin.grid-col2-main
+    width: 79.15%
+
+  .grid-col3-sidebar
+    width: 24.42%
+
+  .grid-col3-main
+    width: 72.98%
+
+  .no-margin.grid-col3-sidebar
+    width: 24.42%
+
+  .no-margin.grid-col3-main
+    width: 72.98%
+
+  // by $gap
+    example from margin-left-1-desktop, to margin-left-right-10-desktop,
+      padding-left-1-desktop, padding-left-right-10-desktop
+  +gutter-creator(margin, right, $gap, 11, '-desktop')
+  +gutter-creator(margin, left, $gap, 11, '-desktop')
+  +gutter-creator(margin, left-right, $gap, 11, '-desktop')
+  +gutter-creator(margin, top-bottom, $gap, 11, '-desktop')
+  +gutter-creator(padding, right, $gap, 11, '-desktop')
+  +gutter-creator(padding, left, $gap, 11, '-desktop')
+  +gutter-creator(padding, left-right, $gap, 11, '-desktop')
+  +gutter-creator(padding, top-bottom, $gap, 11, '-desktop')
+
+  // by percent
+    example from margin-left-percent-1-desktop, to margin-left-right-percent-10-desktop,
+      padding-left-percent-1-desktop, padding-left-right-percent-10-desktop
+  +gutter-percent-creator(margin, right, $gap, 11, '-desktop')
+  +gutter-percent-creator(margin, left, $gap, 11, '-desktop')
+  +gutter-percent-creator(margin, left-right, $gap, 11, '-desktop')
+  +gutter-percent-creator(margin, top-bottom, $gap, 11, '-desktop')
+  +gutter-percent-creator(padding, right, $gap, 11, '-desktop')
+  +gutter-percent-creator(padding, left, $gap, 11, '-desktop')
+  +gutter-percent-creator(padding, left-right, $gap, 11, '-desktop')
+  +gutter-percent-creator(padding, top-bottom, $gap, 11, '-desktop')
+
+
+/* *************************** Tablet version ************************* */
+@media only screen and (min-width: $tablet-min-width) and (max-width: $desktop-max-width)
+  textarea
+    &.mobile
+      min-width: initial
+      min-height: 50px
+      width: 98%
+
+  .hide-below-835
+    display: none
+
+  .container
+    max-width: $tablet-width-container
+
+  .grid-col2-sidebar
+    width: 20.41%
+
+  .grid-col2-main
+    width: 75.58%
+
+  .no-margin.grid-col2-sidebar
+    width: 22.41%
+
+  .no-margin.grid-col2-main
+    width: 77.58%
+
+  .grid-col3-sidebar
+    width: 27.01%
+
+  .grid-col3-main
+    width: 70.34%
+
+  .no-margin.grid-col3-sidebar
+    width: 27.01%
+
+  .no-margin.grid-col3-main
+    width: 70.34%
+
+  .horizontal-grid-tm,
+  .horizontal-grid-tablet
+    text-align: center
+
+
+/* ************************** Mobile version ************************* */
+@media only screen and (max-width: $mobile-max-width)
+  textarea
+    &.mobile
+      min-width: initial
+      min-height: 50px
+      width: 98%
+
+  .hide-below-835,
+  .hide-below-640
+    display: none
+
+  .container
+    max-width: 100%
+
+  .grid12-1,
+  .grid12-2,
+  .grid12-3,
+  .grid12-4,
+  .grid12-5,
+  .grid12-6,
+  .grid12-7,
+  .grid12-8,
+  .grid12-9,
+  .grid12-10,
+  .grid12-11,
+  .grid12-12,
+  .grid-full,
+  .grid-col2-sidebar,
+  .grid-col2-main,
+  .grid-col3-sidebar,
+  .grid-col3-main
+    margin-left: 0
+    margin-right: 0
+    width: 100%
+
+  .vertical-grid-container
+    display: block
+
+  .vertical-grid
+    display: block
+    float: inherit
+    width: 100%
+
+  .horizontal-grid-tm,
+  .horizontal-grid-mobile
+    text-align: center
+
+  .horizontal-flex-container
+    display: block
+
+  // by $gap
+    example from margin-left-1-mobile, to margin-left-right-10-mobile,
+      padding-left-1-mobile, padding-left-right-10-mobile
+  +gutter-creator(margin, right, $gap, 11, '-mobile')
+  +gutter-creator(margin, left, $gap, 11, '-mobile')
+  +gutter-creator(margin, left-right, $gap, 11, '-mobile')
+  +gutter-creator(margin, top-bottom, $gap, 11, '-mobile')
+  +gutter-creator(padding, right, $gap, 11, '-mobile')
+  +gutter-creator(padding, left, $gap, 11, '-mobile')
+  +gutter-creator(padding, left-right, $gap, 11, '-mobile')
+  +gutter-creator(padding, top-bottom, $gap, 11, '-mobile')
+
+  // by percent
+    example from margin-left-percent-1-mobile, to margin-left-right-percent-10-mobile,
+      padding-left-percent-1-mobile, padding-left-right-percent-10-mobile
+  +gutter-percent-creator(margin, right, $gap, 11, '-mobile')
+  +gutter-percent-creator(margin, left, $gap, 11, '-mobile')
+  +gutter-percent-creator(margin, left-right, $gap, 11, '-mobile')
+  +gutter-percent-creator(margin, top-bottom, $gap, 11, '-mobile')
+  +gutter-percent-creator(padding, right, $gap, 11, '-mobile')
+  +gutter-percent-creator(padding, left, $gap, 11, '-mobile')
+  +gutter-percent-creator(padding, left-right, $gap, 11, '-mobile')
+  +gutter-percent-creator(padding, top-bottom, $gap, 11, '-mobile')

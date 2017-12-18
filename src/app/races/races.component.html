@@ -1,0 +1,40 @@
+<div class="grid12-12">
+  <h1>Get data via mocks array, from 'races.mocks.ts'</h1>
+  <h2 class="races horizontal-grid">Welcome to {{ title }}!</h2>
+  <h2>Ultra Racing</h2>
+  <h3>Total racing cost: {{totalCost() | currency: 'USD': 'true'}}</h3>
+  <ul *ngIf="races" class="grid-container-no-spaced">
+    <li *ngFor="let race of races" [class.featured]="race.featured" class="grid-container horizontal-flex-container">
+      <div class="vertical-flex grid12-4">
+        <span class="item-box" *ngIf="race.featured"><span class="label-txt">NEW</span></span>
+        <img [src]="race.image" alt="{{race.name}}" class="image" />
+      </div>
+      <div class="details grid12-8 margin-left-right-percent-2-mobile">
+        <h2><a routerLink="/races-detail/{{race.id}}" class="a">{{race.name | uppercase}} <span>&#x270E;</span></a></h2>
+        <p class="date">{{race.date | date:'MMM d, y, h:mm a'}}</p>
+        <p>{{race.about}}</p>
+        <p class="entry-fee">{{race.entryFee | currency: 'USD': 'true'}}
+          <span *ngIf="race.quantityBought > 0 || race.inStock === 0 || race.isRacing">
+            (Bought: {{(race.quantityBought ? race.quantityBought : race.inStock)}}.
+              Total Fee: {{(race.quantityBought ? race.quantityBought : race.inStock) * race.entryFee | currency: 'USD': 'true'}})
+          </span>
+        </p>
+        <p *ngIf="race.inStock > 0 && !race.isRacing" class="in-stock">{{race.inStock}} in Stock</p>
+        <p *ngIf="race.inStock === 0 || race.isRacing" class="out-of-stock">Out of Stock</p>
+        <div class="grid-container margin-bottom-2">
+          <div *ngIf="race.inStock > 0 && !race.isRacing" class="horizontal-grid-mobile no-margin grid12-6">
+            <button class="button" (click)="onDownQuantity(race)">-</button>
+            <input class="input" type="number" min="0" max="{{race.inStock}}" title="Race quantity"
+                   [(ngModel)]="race.quantity" (keypress)="enterRace($event, race)" />
+            <button class="button" (click)="onUpQuantity(race)">+</button>
+          </div>
+          <div class="horizontal-grid-mobile no-margin grid12-6">
+            <button class="button wide" *ngIf="race.inStock > 0 && !race.isRacing" (click)="enterRace($event, race)">Enter Race</button>
+          </div>
+        </div>
+        <h3 *ngIf="race.isRacing">Already Racing</h3>
+      </div>
+    </li>
+  </ul>
+  <h3>Total racing cost: {{totalCost() | currency: 'USD': 'true'}}</h3>
+</div>

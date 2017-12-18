@@ -1,0 +1,26 @@
+<div class="grid12-12">
+  <h1 class="races horizontal-grid">Welcome to {{title}}!</h1>
+  <ul *ngIf="race" class="grid-container-no-spaced">
+    <li [class.featured]="race.featured" class="grid-container horizontal-flex-container">
+      <div class="vertical-flex grid12-4">
+        <span class="item-box" *ngIf="race.featured"><span class="label-txt">NEW</span></span>
+        <img [src]="race.image" alt="{{race.name}}" class="image" />
+      </div>
+      <div class="details grid12-8 margin-left-right-percent-2-mobile">
+        <h2>{{race.name | uppercase}}</h2>
+        <p class="date">{{race.date | date:'MMM d, y, h:mm a'}}</p>
+        <textarea [(ngModel)]="race.about" class="mobile">{{race.about}}</textarea>
+        <p class="entry-fee">{{race.entryFee | currency: 'USD': 'true'}}
+          <span *ngIf="race.quantityBought > 0 || race.inStock === 0 || race.isRacing">
+            (Bought: {{(race.quantityBought ? race.quantityBought : race.inStock)}}.
+              Total Fee: {{(race.quantityBought ? race.quantityBought : race.inStock) * race.entryFee | currency: 'USD': 'true'}})
+          </span>
+        </p>
+        <p *ngIf="race.inStock > 0 && !race.isRacing" class="in-stock">{{race.inStock}} in Stock</p>
+        <p *ngIf="race.inStock === 0 || race.isRacing" class="out-of-stock">Out of Stock</p>
+        <h3 *ngIf="race.isRacing">Already Racing</h3>
+      </div>
+    </li>
+  </ul>
+  <button (click)="goBack()" class="button margin-top-bottom-3">go back</button>
+</div>

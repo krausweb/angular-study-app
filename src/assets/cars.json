@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "Audi A6",
+    "about": "The Audi A6 is an executive car made by the German automaker Audi, now in its fourth generation."
+  }, {
+    "id": 2,
+    "name": "BMW X5",
+    "about": "The BMW E53 is the first-generation BMW X5 mid-sized luxury crossover SUV."
+  }, {
+    "id": 3,
+    "name": "Volvo XC90",
+    "about": "The Volvo XC90 is a luxury crossover SUV manufactured and marketed by Volvo Cars since 2002 and now in its second generation."
+  }
+]
